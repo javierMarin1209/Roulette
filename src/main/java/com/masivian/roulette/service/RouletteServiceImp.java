@@ -28,5 +28,21 @@ public class RouletteServiceImp implements RouletteService {
 		}
 		
 	}
+	@Override
+	public Boolean openRoulette(Integer id) {
+		Boolean res=false;
+		Roulette roulette= new Roulette();
+		roulette.setStatus(Status.OPEN);
+		roulette.setId(id);
+		try {
+			if(rouletteRepository.findById(id)!=null) {
+				rouletteRepository.update(roulette);
+				res= true;
+			}
+		}catch (Exception e) {
+			LOGGER.error(e.getMessage());
+		}
+		return res;
+	}
 
 }
