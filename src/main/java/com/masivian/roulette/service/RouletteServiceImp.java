@@ -1,5 +1,7 @@
 package com.masivian.roulette.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +45,15 @@ public class RouletteServiceImp implements RouletteService {
 			LOGGER.error(e.getMessage());
 		}
 		return res;
+	}
+	@Override
+	public List<Roulette> listRoulettes() {
+		try {
+			return rouletteRepository.findAll();
+		}catch (Exception e) {
+			LOGGER.error(e.getMessage());
+		}
+		return null;
 	}
 
 }
