@@ -1,12 +1,14 @@
 package com.masivian.roulette.service;
 
-import java.util.List;
-
-import com.masivian.roulette.model.Roulette;
+import com.masivian.roulette.object.RequestCreateBet;
+import com.masivian.roulette.object.ResponseCreateBet;
+import com.masivian.roulette.object.ResponseCreateRoulette;
+import com.masivian.roulette.object.ResponseListRoulettes;
+import com.masivian.roulette.object.ResponseOpenRoulette;
 
 public interface RouletteService {
-	public Integer createRoulette();
-	public Boolean openRoulette(Integer id);
-	public List<Roulette> listRoulettes();
-
+	public ResponseCreateRoulette createRoulette();
+	public ResponseOpenRoulette openRoulette(Integer id);
+	public ResponseListRoulettes listRoulettes();
+	public ResponseCreateBet createBet(RequestCreateBet bet,String user);
 }
