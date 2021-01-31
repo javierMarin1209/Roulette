@@ -3,6 +3,7 @@ package com.masivian.roulette.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.masivian.roulette.model.Bet;
 import com.masivian.roulette.model.Roulette;
@@ -11,7 +12,7 @@ import com.masivian.roulette.object.RequestCreateBet;
 import com.masivian.roulette.object.ResponseCreateBet;
 import com.masivian.roulette.repository.BetRepository;
 import com.masivian.roulette.repository.RouletteRepository;
-
+@Service
 public class BetServiceImp implements BetService {
 	private static final Logger LOGGER= LoggerFactory.getLogger(BetServiceImp.class);
 	@Autowired

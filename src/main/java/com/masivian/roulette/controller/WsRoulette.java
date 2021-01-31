@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.masivian.roulette.object.ResponseCloseRoulette;
 import com.masivian.roulette.object.ResponseCreateRoulette;
 import com.masivian.roulette.object.ResponseListRoulettes;
 import com.masivian.roulette.object.ResponseOpenRoulette;
@@ -29,6 +30,10 @@ public class WsRoulette {
 	@GetMapping("/list")
 	public ResponseListRoulettes listRoulettes() {
 		return rouletteService.listRoulettes();
+	}
+	@PutMapping("/close/{id}")
+	public ResponseCloseRoulette closeRoulette(@PathVariable Integer id) {
+		return rouletteService.closeRoulette(id);
 	}
 	
 }

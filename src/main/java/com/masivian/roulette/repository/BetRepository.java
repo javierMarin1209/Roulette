@@ -1,6 +1,7 @@
 package com.masivian.roulette.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -33,6 +34,9 @@ public class BetRepository {
 	public int findNextId() {
 		Long i= hashOperations.size(BET);
 		return i.intValue();
+	}
+	public void updateByRoulette(Map<Integer,Bet> bets) {
+		hashOperations.putAll(BET,bets);
 	}
 
 }

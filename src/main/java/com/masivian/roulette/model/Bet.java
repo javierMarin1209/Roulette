@@ -13,6 +13,7 @@ public class Bet implements Serializable{
 	private Integer number;
 	private Float money;
 	private Integer idRoulette;
+	private Status status;
 	
 	public Bet(RequestCreateBet createBet,String user) {
 		this.user=user;
@@ -21,6 +22,7 @@ public class Bet implements Serializable{
 		this.color=createBet.getColor();
 		this.number=createBet.getNumber();
 		this.money=createBet.getMoney();
+		this.status=Status.OPEN;
 	}
 	public Integer getId() {
 		
@@ -75,6 +77,13 @@ public class Bet implements Serializable{
 	}
 	public void setMoney(Float money) {
 		this.money = money;
+	}
+	
+	public Status getStatus() {
+		return status;
+	}
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 	public boolean validateBet() {
 		boolean response=false;
