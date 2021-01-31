@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,7 @@ import com.masivian.roulette.object.ResponseOpenRoulette;
 import com.masivian.roulette.service.RouletteService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/roulette")
 public class WsRoulette {
 	@Autowired
 	private RouletteService rouletteService;
@@ -25,17 +26,13 @@ public class WsRoulette {
 	public ResponseCreateRoulette create() {
 		return rouletteService.createRoulette();
 	}
-	@PostMapping("/openRoulette/{id}")
+	@PutMapping("/open/{id}")
 	public ResponseOpenRoulette openRoulette(@PathVariable Integer id) {
 		return rouletteService.openRoulette(id);
 	}
-	@GetMapping("/listRoulette")
+	@GetMapping("/list")
 	public ResponseListRoulettes listRoulettes() {
 		return rouletteService.listRoulettes();
-	}
-	@PostMapping("/createBet")
-	public ResponseCreateBet createBet(@RequestBody RequestCreateBet createBet,@RequestHeader(name = "User",required = true) String user) {
-		return rouletteService.createBet(createBet,user);
 	}
 	
 }
