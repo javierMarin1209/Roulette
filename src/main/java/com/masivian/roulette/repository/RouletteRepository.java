@@ -8,12 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import com.masivian.roulette.model.Roulette;
 @Repository
-public class RouletteRespository {
-	
+public class RouletteRepository {
 	private static final String ROULETTE="ROULETTE";
 	private HashOperations<String, Integer, Roulette> hashOperations;
 	
-	public RouletteRespository(RedisTemplate<String, Roulette> redisTemplate) {
+	public RouletteRepository(RedisTemplate<String, Roulette> redisTemplate) {
 		this.hashOperations=redisTemplate.opsForHash();
 	}
 	public void saveRoulette(Roulette roulette) {
