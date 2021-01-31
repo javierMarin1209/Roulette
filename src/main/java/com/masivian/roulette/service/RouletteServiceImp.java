@@ -30,6 +30,7 @@ public class RouletteServiceImp implements RouletteService {
 	BetRepository betRepository;
 	@Override
 	public ResponseCreateRoulette createRoulette() {
+		LOGGER.info("--------CREATE A ROULETTE-----");
 		ResponseCreateRoulette response= new ResponseCreateRoulette();
 		Roulette roulette= new Roulette();
 		roulette.setStatus(Status.CLOSE);
@@ -44,6 +45,7 @@ public class RouletteServiceImp implements RouletteService {
 	}
 	@Override
 	public ResponseOpenRoulette openRoulette(Integer id) {
+		LOGGER.info("--------OPEN A ROULETTE-----ID:"+id);
 		ResponseOpenRoulette response= new ResponseOpenRoulette();
 		Roulette roulette= new Roulette();
 		response.setStatus(false);
@@ -61,6 +63,7 @@ public class RouletteServiceImp implements RouletteService {
 	}
 	@Override
 	public ResponseListRoulettes listRoulettes() {
+		LOGGER.info("--------LIST ROULETTES-----");
 		ResponseListRoulettes response = new ResponseListRoulettes();
 		try {
 			response.setRoulettes(rouletteRepository.findAll());
@@ -72,6 +75,7 @@ public class RouletteServiceImp implements RouletteService {
 	@Override
 	@Transactional
 	public ResponseCloseRoulette closeRoulette(Integer id) {
+		LOGGER.info("--------CLOSE A ROULETTE-----ID:"+id);
 		ResponseCloseRoulette response= new ResponseCloseRoulette();
 		Roulette roulette;
 		response.setSuccess(false);

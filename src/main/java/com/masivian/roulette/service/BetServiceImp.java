@@ -21,6 +21,7 @@ public class BetServiceImp implements BetService {
 	BetRepository betRepository;
 	@Override
 	public ResponseCreateBet createBet(RequestCreateBet requestCreateBet,String user) {
+		LOGGER.info("--------CREATE A BET-----USER: "+user);
 		Bet bet= new Bet(requestCreateBet,user);
 		ResponseCreateBet responseCreateBet= new ResponseCreateBet();
 		responseCreateBet.setSuccess(false);
