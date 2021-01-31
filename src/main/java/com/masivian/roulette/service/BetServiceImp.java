@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.masivian.roulette.model.Bet;
+import com.masivian.roulette.model.Roulette;
+import com.masivian.roulette.model.Status;
 import com.masivian.roulette.object.RequestCreateBet;
 import com.masivian.roulette.object.ResponseCreateBet;
 import com.masivian.roulette.repository.BetRepository;
@@ -20,20 +22,20 @@ public class BetServiceImp implements BetService {
 	public ResponseCreateBet createBet(RequestCreateBet requestCreateBet,String user) {
 		Bet bet= new Bet(requestCreateBet,user);
 		ResponseCreateBet responseCreateBet= new ResponseCreateBet();
+		responseCreateBet.setSuccess(false);
 		try {
-			if(bet.validateBet()&&rouletteRepository.findById(requestCreateBet.getIdRoulette())!=null) {
-				bet.setId(betRepository.findNextId());
-				bet.prepearBet();
-				betRepository.saveBet(bet);
-				responseCreateBet.setSuccess(true);
-			}else {
-				responseCreateBet.setSuccess(false);
+			if(bet.validateBet()) {
+				Roulette roulette=rouletteRepository.findById(requestCreateBet.getIdRoulette());
+				if(roulette!=null && roulette.getStatus()==Status.OPEN) {
+					bet.setId(betRepository.findNextId());
+					bet.prepearBet();
+					betRepository.saveBet(bet);
+					responseCreateBet.setSuccess(true);
+				}
 			}
 		}catch (Exception e) {
 			LOGGER.error(e.getMessage());
-			responseCreateBet.setSuccess(false);
 		}
-		
 		return responseCreateBet;
 	}
 
