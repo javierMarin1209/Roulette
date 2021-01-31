@@ -1,5 +1,7 @@
 ## API REST ROULETTE
 
+##IMPORTANT THE TWO USER ARE THE SAME
+
 ### COMPONENTS DIAGRAM
 
 | Component| Description|
