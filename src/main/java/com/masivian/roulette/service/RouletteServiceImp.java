@@ -68,13 +68,20 @@ public class RouletteServiceImp implements RouletteService {
 	public ResponseCreateBet createBet(RequestCreateBet requestCreateBet,String user) {
 		Bet bet= new Bet(requestCreateBet,user);
 		ResponseCreateBet responseCreateBet= new ResponseCreateBet();
-		if(bet.validateBet()&&rouletteRepository.findById(requestCreateBet.getIdRoulette())!=null) {
-			bet.setId(betRepository.findNextId());
-			bet.prepearBet();
-			betRepository.saveBet(bet);
-		}else {
+		try {
+			if(bet.validateBet()&&rouletteRepository.findById(requestCreateBet.getIdRoulette())!=null) {
+				bet.setId(betRepository.findNextId());
+				bet.prepearBet();
+				betRepository.saveBet(bet);
+				responseCreateBet.setSuccess(true);
+			}else {
+				responseCreateBet.setSuccess(false);
+			}
+		}catch (Exception e) {
+			LOGGER.error(e.getMessage());
 			responseCreateBet.setSuccess(false);
 		}
+		
 		return responseCreateBet;
 	}
 

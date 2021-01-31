@@ -1,8 +1,11 @@
 package com.masivian.roulette.model;
 
+import java.io.Serializable;
+
 import com.masivian.roulette.object.RequestCreateBet;
 
-public class Bet {
+public class Bet implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String user;
 	private TypeBet type;
