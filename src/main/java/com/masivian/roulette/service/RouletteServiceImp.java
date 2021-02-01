@@ -41,6 +41,7 @@ public class RouletteServiceImp implements RouletteService {
 		}catch (Exception e) {
 			LOGGER.error(e.getMessage());
 		}
+		
 		return response;
 	}
 	@Override
@@ -59,6 +60,7 @@ public class RouletteServiceImp implements RouletteService {
 		}catch (Exception e) {
 			LOGGER.error(e.getMessage());
 		}
+		
 		return response;
 	}
 	@Override
@@ -70,6 +72,7 @@ public class RouletteServiceImp implements RouletteService {
 		}catch (Exception e) {
 			LOGGER.error(e.getMessage());
 		}
+		
 		return response;
 	}
 	@Override
@@ -92,6 +95,7 @@ public class RouletteServiceImp implements RouletteService {
 		}catch (Exception e) {
 			LOGGER.error(e.getMessage());
 		}
+		
 		return response;
 	}
 	private void closeBets(List<Bet> bets) {

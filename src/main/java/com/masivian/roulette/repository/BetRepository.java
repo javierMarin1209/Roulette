@@ -12,7 +12,6 @@ import com.masivian.roulette.model.Bet;
 public class BetRepository {
 	private static final String BET="BET";
 	private HashOperations<String, Integer, Bet> hashOperations;
-	
 	public BetRepository(RedisTemplate<String, Bet> redisTemplate) {
 		this.hashOperations=redisTemplate.opsForHash();
 	}
@@ -20,9 +19,11 @@ public class BetRepository {
 		hashOperations.put(BET,bet.getId(),bet);
 	}
 	public List<Bet> findAll(){
+		
 		return hashOperations.values(BET);
 	}
 	public Bet findById(Integer id) {
+		
 		return hashOperations.get(BET, id);
 	}
 	public void update(Bet bet) {
@@ -33,10 +34,10 @@ public class BetRepository {
 	}
 	public int findNextId() {
 		Long i= hashOperations.size(BET);
+		
 		return i.intValue();
 	}
 	public void updateByRoulette(Map<Integer,Bet> bets) {
 		hashOperations.putAll(BET,bets);
 	}
-
 }

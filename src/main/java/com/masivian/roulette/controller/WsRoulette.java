@@ -21,18 +21,22 @@ public class WsRoulette {
 	private RouletteService rouletteService;
 	@PostMapping("/create")
 	public ResponseCreateRoulette create() {
+		
 		return rouletteService.createRoulette();
 	}
 	@PutMapping("/open/{id}")
 	public ResponseOpenRoulette openRoulette(@PathVariable Integer id) {
+		
 		return rouletteService.openRoulette(id);
 	}
 	@GetMapping("/list")
 	public ResponseListRoulettes listRoulettes() {
+		
 		return rouletteService.listRoulettes();
 	}
 	@PutMapping("/close/{id}")
 	public ResponseCloseRoulette closeRoulette(@PathVariable Integer id) {
+		
 		return rouletteService.closeRoulette(id);
 	}
 	

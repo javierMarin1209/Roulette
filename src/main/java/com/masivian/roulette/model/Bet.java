@@ -102,6 +102,7 @@ public class Bet implements Serializable{
 				break;
 			}
 		}
+		
 		return response;
 	}
 	public void prepearBet() {

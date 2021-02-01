@@ -11,7 +11,6 @@ import com.masivian.roulette.model.Roulette;
 public class RouletteRepository {
 	private static final String ROULETTE="ROULETTE";
 	private HashOperations<String, Integer, Roulette> hashOperations;
-	
 	public RouletteRepository(RedisTemplate<String, Roulette> redisTemplate) {
 		this.hashOperations=redisTemplate.opsForHash();
 	}
@@ -19,9 +18,11 @@ public class RouletteRepository {
 		hashOperations.put(ROULETTE,roulette.getId(),roulette);
 	}
 	public List<Roulette> findAll(){
+		
 		return hashOperations.values(ROULETTE);
 	}
 	public Roulette findById(Integer id) {
+		
 		return hashOperations.get(ROULETTE, id);
 	}
 	public void update(Roulette roulette) {
@@ -34,5 +35,4 @@ public class RouletteRepository {
 		Long i= hashOperations.size(ROULETTE);
 		return i.intValue();
 	}
-	
 }

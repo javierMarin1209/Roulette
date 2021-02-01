@@ -10,12 +10,14 @@ public class RequestCreateBet {
 	private Integer idRoulette;
 	private Float money;
 	public Color getColor() {
+		
 		return color;
 	}
 	public void setColor(Color color) {
 		this.color = color;
 	}
 	public TypeBet getTypeBet() {
+		
 		return typeBet;
 	}
 	public void setTypeBet(TypeBet typeBet) {
@@ -34,6 +36,7 @@ public class RequestCreateBet {
 		this.idRoulette = idRoulette;
 	}
 	public Float getMoney() {
+		
 		return money;
 	}
 	public void setMoney(Float money) {

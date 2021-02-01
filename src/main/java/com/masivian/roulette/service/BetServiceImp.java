@@ -38,7 +38,7 @@ public class BetServiceImp implements BetService {
 		}catch (Exception e) {
 			LOGGER.error(e.getMessage());
 		}
+		
 		return responseCreateBet;
 	}
-
 }
