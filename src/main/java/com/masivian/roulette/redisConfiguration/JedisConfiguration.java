@@ -14,6 +14,7 @@ public class JedisConfiguration {
 	Integer port;
 	@Bean
     LettuceConnectionFactory jedisConnectionFactory() {
+		
 		return new LettuceConnectionFactory(serve, port);
     }
 	@SuppressWarnings("rawtypes")
@@ -21,6 +22,7 @@ public class JedisConfiguration {
 	RedisTemplate redisRouletteTemplate() {
 		RedisTemplate redisTemplate= new RedisTemplate<>();
 		redisTemplate.setConnectionFactory(jedisConnectionFactory());
+		
 		return redisTemplate;
 	}
  

@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.masivian</groupId>
-	<artifactId>roulette</artifactId>
+	<artifactId>rouletteApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>roulette</name>
 	<description>Api rest with the crud for a roulettes</description>

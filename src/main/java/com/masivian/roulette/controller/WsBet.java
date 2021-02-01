@@ -18,6 +18,7 @@ public class WsBet {
 	BetService betService;
 	@PostMapping("/create")
 	public ResponseCreateBet createBet(@RequestBody RequestCreateBet createBet,@RequestHeader(name = "User",required = true) String user) {
+		
 		return betService.createBet(createBet,user);
 	}
 
